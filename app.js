@@ -10,8 +10,31 @@ const store = {
 // === Idioma ===
 function getLang(){ return store.get().lang || "es"; }
 function setLang(l){ store.set({lang:l}); applyLangLabels(); }
-function getTheoryData(){ return getLang()==="en" && window.THEORY_EN ? window.THEORY_EN : window.THEORY; }
-function getQuestionsData(){ return getLang()==="en" && window.QUESTIONS_EN ? window.QUESTIONS_EN : window.QUESTIONS; }
+function getActiveCertData(){
+  const id = getCurrentCert();
+  if(!id) return null;
+  return (window.CERT_DATA && window.CERT_DATA[id]) || null;
+}
+function getTheoryData(){
+  const cd = getActiveCertData();
+  if(cd){
+    if(getLang()==="en" && cd.theory_en) return cd.theory_en;
+    return cd.theory || window.THEORY;
+  }
+  return getLang()==="en" && window.THEORY_EN ? window.THEORY_EN : window.THEORY;
+}
+function getQuestionsData(){
+  const cd = getActiveCertData();
+  if(cd){
+    if(getLang()==="en" && cd.questions_en) return cd.questions_en;
+    return cd.questions || window.QUESTIONS;
+  }
+  return getLang()==="en" && window.QUESTIONS_EN ? window.QUESTIONS_EN : window.QUESTIONS;
+}
+function getFlashcardsData(){
+  const cd = getActiveCertData();
+  return (cd && cd.flashcards) || window.FLASHCARDS;
+}
 
 // === Cert actual ===
 function getCurrentCert(){ return store.get().currentCert || null; }
@@ -299,15 +322,17 @@ function theory(){
 function flashcards(){
   let domain = "all";
   let mode = "all"; // all | unknown
-  let order = shuffle(FLASHCARDS.map((_,i)=>i));
+  const FC = getFlashcardsData();
+  let order = shuffle(FC.map((_,i)=>i));
   let idx = 0;
 
   const render = () => {
     const s = store.get();
-    let pool = order.filter(i => domain==="all" || FLASHCARDS[i].d==Number(domain));
+    const FC2 = getFlashcardsData();
+    let pool = order.filter(i => i < FC2.length && (domain==="all" || FC2[i].d==Number(domain)));
     if(mode==="unknown") pool = pool.filter(i => !s.fcKnown.includes(i));
     if(idx >= pool.length) idx = 0;
-    const card = pool.length ? FLASHCARDS[pool[idx]] : null;
+    const card = pool.length ? FC2[pool[idx]] : null;
 
     view.innerHTML = `
       <h2>Flashcards</h2>
@@ -325,7 +350,7 @@ function flashcards(){
           </select>
         </label>
         <button class="btn ghost" id="fcShuffle">Mezclar</button>
-        <span style="color:var(--mut);font-size:13px">Tarjeta ${pool.length?idx+1:0}/${pool.length} · ${s.fcKnown.length}/${FLASHCARDS.length} dominadas</span>
+        <span style="color:var(--mut);font-size:13px">Tarjeta ${pool.length?idx+1:0}/${pool.length} · ${s.fcKnown.length}/${FC2.length} dominadas</span>
       </div>
       ${card ? `
       <div class="fc-stage">

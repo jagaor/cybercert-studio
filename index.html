@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CompTIA Security+ SY0-701 — Estudio Interactivo</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">S+</div>
+    <div>
+      <h1>Security+ SY0-701</h1>
+      <p class="sub">Plataforma de estudio interactiva</p>
+    </div>
+  </div>
+  <nav id="nav">
+    <button data-route="dashboard" class="active">Dashboard</button>
+    <button data-route="theory">Teoría</button>
+    <button data-route="flashcards">Flashcards</button>
+    <button data-route="acronyms">Acrónimos</button>
+    <button data-route="quiz">Quiz</button>
+    <button data-route="exam">Examen</button>
+    <button data-route="glossary">Glosario</button>
+    <button id="langToggle" title="Cambiar idioma de teoría y examen" style="margin-left:8px;background:linear-gradient(135deg,#0a3d62,#0f5582);border-color:#1a6ba8">🌐 ES / EN</button>
+    <button id="changeCertBtn" title="Cambiar certificación">↺ Cambiar cert</button>
+  </nav>
+</header>
+
+<main id="view"></main>
+
+<!-- Bot de ayuda flotante -->
+<button id="botBtn" title="Pregúntame lo que sea">
+  <span class="pulse"></span>
+  <span style="position:relative;z-index:1">?</span>
+</button>
+<div id="botPanel" role="dialog" aria-label="Asistente de estudio">
+  <div class="bot-head">
+    <div class="title">
+      <div class="av">S+</div>
+      <div>
+        <h3>Asistente Sec+</h3>
+        <p>Pregunta cualquier concepto del temario</p>
+      </div>
+    </div>
+    <button class="close" id="botClose" aria-label="Cerrar">×</button>
+  </div>
+  <div class="bot-msgs" id="botMsgs"></div>
+  <div class="bot-suggest" id="botSuggest"></div>
+  <div class="bot-input">
+    <input type="text" id="botInput" placeholder="Ej: ¿qué es TLS?" autocomplete="off"/>
+    <button id="botSend" title="Enviar">➤</button>
+  </div>
+</div>
+
+<footer>
+  <span>Hecho para preparar SY0-701 · Datos guardados localmente · <a href="#" id="reset">Reset progreso</a></span>
+</footer>
+
+<script src="data/certs.js"></script>
+<script src="data/glossary.js"></script>
+<script src="data/theory.js"></script>
+<script src="data/theory_en.js"></script>
+<script src="data/flashcards.js"></script>
+<script src="data/acronyms.js"></script>
+<script src="data/questions.js"></script>
+<script src="data/questions_en.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

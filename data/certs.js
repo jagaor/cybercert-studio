@@ -25,6 +25,8 @@ window.CERTS = [
  desc:"Práctico 100% hands-on: phishing analysis, OSINT, IR, threat intel, SIEM. Examen 24h en lab real.", status:"ready"},
 {id:"sscp", name:"SSCP", code:"SSCP", vendor:"ISC2", track:"blue", level:"Intermediate", hours:"~100h", color:"#0891b2",
  desc:"Systems Security Certified Practitioner. ISC2 técnica para administradores con 1 año experiencia.", status:"ready"},
+{id:"sc200", name:"SC-200 Security Operations Analyst", code:"SC-200", vendor:"Microsoft", track:"blue", level:"Intermediate", hours:"~100h", color:"#00a4ef",
+ desc:"Microsoft Security Operations Analyst. Defender XDR, Microsoft Sentinel (SIEM/SOAR), Defender for Cloud, KQL, threat hunting e IR en el ecosistema Microsoft.", status:"ready"},
 
 // === RED TEAM / OFFENSIVE ===
 {id:"pentest", name:"PenTest+", code:"PT0-003", vendor:"CompTIA", track:"red", level:"Intermediate", hours:"~120h", color:"#dc2626",
@@ -72,7 +74,11 @@ window.CERTS = [
 {id:"ccnp", name:"CCNP Security", code:"350-701", vendor:"Cisco", track:"network", level:"Advanced", hours:"~250h", color:"#0c80b8",
  desc:"Cisco Certified Network Professional Security. Avanzada en seguridad de red Cisco.", status:"ready"},
 {id:"jncissec", name:"JNCIS-SEC", code:"JN0-335", vendor:"Juniper", track:"network", level:"Intermediate", hours:"~120h", color:"#84b818",
- desc:"Juniper Networks Certified Specialist Security. Seguridad en plataformas Juniper.", status:"ready"}
+ desc:"Juniper Networks Certified Specialist Security. Seguridad en plataformas Juniper.", status:"ready"},
+
+// === OPOSICIONES (España) ===
+{id:"taic1", name:"TAI — Técnico Auxiliar de Informática del Estado", code:"TAI C1", vendor:"Estado / AGE", track:"oposiciones", level:"C1", hours:"~600h", color:"#c8102e",
+ desc:"Oposición al Cuerpo de Técnicos Auxiliares de Informática de la Administración General del Estado (grupo C1). Hardware, SO, redes, BBDD, programación, ofimática, seguridad y normativa española (ENS, LOPDGDD, Ley 39/2015, 40/2015).", status:"ready"}
 ];
 
 window.TRACKS = [
@@ -81,5 +87,6 @@ window.TRACKS = [
 {id:"red", name:"Red Team / Ofensiva", icon:"⚔", desc:"Pentesting, ethical hacking, exploitation, evasion."},
 {id:"cloud", name:"Cloud Security", icon:"☁", desc:"AWS, Azure, GCP. Seguridad en entornos cloud."},
 {id:"grc", name:"GRC / Gestión", icon:"⚖", desc:"Governance, riesgo, cumplimiento, auditoría, management."},
-{id:"network", name:"Network Security", icon:"⇄", desc:"Cisco, Juniper. Seguridad de infraestructura de red."}
+{id:"network", name:"Network Security", icon:"⇄", desc:"Cisco, Juniper. Seguridad de infraestructura de red."},
+{id:"oposiciones", name:"Oposiciones (España)", icon:"🏛", desc:"Cuerpos TIC de la Administración Pública española. Temario oficial + normativa."}
 ];

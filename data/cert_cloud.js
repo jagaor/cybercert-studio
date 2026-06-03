@@ -178,7 +178,9 @@ flashcards: [
 {d:1,q:"¿Qué es Conditional Access?",a:"Motor de políticas if-then en Entra ID. Si (user, app, device, location, risk, etc.) entonces (allow, block, require MFA, require compliant device, require app protection)."},
 {d:2,q:"¿Diferencia entre Azure Bastion y Just-in-Time VM Access?",a:"Bastion: gateway PaaS para RDP/SSH a VMs sin IP pública (TLS browser). JIT: abre puerto inbound temporalmente solo a tu IP, vía Defender for Cloud."},
 {d:3,q:"¿Qué hace TDE en Azure SQL?",a:"Transparent Data Encryption: cifra automáticamente data files (.mdf), log files (.ldf), backups con clave gestionada por Azure o Customer-Managed (BYOK)."},
-{d:4,q:"¿Qué es KQL?",a:"Kusto Query Language. Lenguaje de queries de Azure Data Explorer / Log Analytics / Sentinel. Estructura: Table | where ... | summarize ... | project ..."}
+{d:4,q:"¿Qué es KQL?",a:"Kusto Query Language. Lenguaje de queries de Azure Data Explorer / Log Analytics / Sentinel. Estructura: Table | where ... | summarize ... | project ..."},
+{d:1,q:"¿Qué es PIM en Microsoft Entra ID?",a:"Privileged Identity Management: activación just-in-time de roles privilegiados, con aprobación, MFA y justificación. Los roles quedan 'eligible' y solo se activan por tiempo limitado."},
+{d:2,q:"¿Diferencia entre Service Endpoint y Private Endpoint?",a:"Service Endpoint extiende la identidad de la VNet al servicio PaaS (el tráfico sigue por la red de Azure). Private Endpoint asigna una IP privada de la VNet al recurso, manteniendo el tráfico totalmente privado."}
 ]
 };
 
@@ -241,7 +243,9 @@ flashcards: [
 {d:1,q:"¿Qué es la jerarquía de recursos en GCP?",a:"Organization → Folders → Projects → Resources. IAM policies y org policies se heredan hacia abajo."},
 {d:2,q:"¿Qué hace Cloud Armor?",a:"L7 WAF + anti-DDoS para HTTP(S) Load Balancers. Reglas managed (OWASP), custom, IP allow/deny, geo."},
 {d:3,q:"¿Diferencia CMEK vs CSEK?",a:"CMEK: clave en Cloud KMS, gestionada por el cliente pero almacenada en Google. CSEK: cliente provee la clave en cada request, Google nunca la almacena."},
-{d:4,q:"¿Qué loguean Cloud Audit Logs?",a:"Admin Activity (siempre, gratis): cambios de config. Data Access (opcional, costoso): lectura/escritura de datos. System Event: operaciones GCP automáticas. Policy Denied: denegaciones IAM."}
+{d:4,q:"¿Qué loguean Cloud Audit Logs?",a:"Admin Activity (siempre, gratis): cambios de config. Data Access (opcional, costoso): lectura/escritura de datos. System Event: operaciones GCP automáticas. Policy Denied: denegaciones IAM."},
+{d:1,q:"¿Por qué evitar service account keys en GCP?",a:"Son credenciales de larga vida fáciles de filtrar. Mejor usar Workload Identity Federation (identidad federada sin claves) o adjuntar la service account directamente al recurso (VM, GKE)."},
+{d:3,q:"¿Qué hace Cloud DLP?",a:"Inspecciona y des-identifica datos sensibles (InfoTypes: tarjetas, emails, DNI...) en texto, imágenes y BigQuery. Aplica tokenización, masking o redacción."}
 ]
 };
 

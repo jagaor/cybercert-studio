@@ -197,7 +197,9 @@ flashcards: [
 {d:1,q:"¿Qué es value delivery en governance?",a:"Asegurar que las inversiones en seguridad producen valor demostrable al negocio (no solo gasto)."},
 {d:2,q:"¿Qué es un Key Risk Indicator (KRI)?",a:"Métrica que avisa cuando un riesgo se acerca a su umbral. Permite respuesta temprana antes de materializarse."},
 {d:3,q:"¿Qué cubre un security awareness program efectivo?",a:"Onboarding, anual, role-based, métricas (click rate, report rate), simulaciones, cultura. No solo videos."},
-{d:4,q:"¿Cuándo se inicia el plan de comunicación externa en un incidente?",a:"Tras consultar legal/comms. Notificaciones obligatorias (GDPR 72h) en cuanto se confirme materialidad. Templates pre-aprobados ahorran tiempo."}
+{d:4,q:"¿Cuándo se inicia el plan de comunicación externa en un incidente?",a:"Tras consultar legal/comms. Notificaciones obligatorias (GDPR 72h) en cuanto se confirme materialidad. Templates pre-aprobados ahorran tiempo."},
+{d:1,q:"¿Qué diferencia a CISM de CISSP?",a:"CISM (ISACA) es más de gestión y gobernanza, orientado a roles de manager/CISO. CISSP (ISC2) es más técnico-amplio. CISM se centra en alinear seguridad con objetivos de negocio."},
+{d:2,q:"¿Diferencia entre riesgo inherente y residual?",a:"Inherente: el riesgo antes de aplicar controles. Residual: el que queda tras los controles. La decisión final es aceptar el residual o aplicar más controles."}
 ]
 };
 
@@ -329,13 +331,16 @@ questions: [
 {d:1,q:"Three lines of defense:",opts:["IT, security, audit","Operational mgmt, risk/compliance functions, internal audit","Pentest, vuln scan, SIEM","Antivirus, firewall, IDS"],c:1,e:"3LoD: business owns risk, risk function oversees, audit provides independent assurance."},
 {d:2,q:"Risk register debe incluir:",opts:["Solo descripción","Risk + owner + KRI + threshold + treatment + status","Solo presupuesto","Solo tecnologías"],c:1,e:"Risk register completo permite tracking, escalation, priorización y reporting."},
 {d:3,q:"Cost-benefit: el control vale la pena si:",opts:["Es caro","El coste anual del control < ALE reducido + valor protegido","Reduce 100%","Es nuevo"],c:1,e:"Si gastas 500€/año en control que reduce ALE en 2000€/año, ahorras 1500€."},
-{d:4,q:"AI/ML introduce riesgo de:",opts:["Mejora todo","Bias, model poisoning, adversarial inputs, opacity, data leakage en training","Sin riesgo","Solo coste"],c:1,e:"Riesgos AI: training data poisoning, prompt injection, hallucinations, IP leakage, sesgo, decisiones no explicables."}
+{d:4,q:"AI/ML introduce riesgo de:",opts:["Mejora todo","Bias, model poisoning, adversarial inputs, opacity, data leakage en training","Sin riesgo","Solo coste"],c:1,e:"Riesgos AI: training data poisoning, prompt injection, hallucinations, IP leakage, sesgo, decisiones no explicables."},
+{d:1,q:"¿Qué estrategias de tratamiento de riesgo existen?",opts:["Solo aceptar","Mitigar, Transferir, Evitar, Aceptar","Solo mitigar","Ignorar y documentar"],c:1,e:"Las cuatro estrategias: Mitigar (reducir con controles), Transferir (seguro/tercero), Evitar (eliminar la actividad) y Aceptar (asumir el riesgo formalmente)."},
+{d:2,q:"Un KRI (Key Risk Indicator) sirve para:",opts:["Medir beneficios","Avisar cuando un riesgo se aproxima a su umbral","Calcular el ROI","Auditar finanzas"],c:1,e:"El KRI es una métrica predictiva: alerta de que un riesgo está creciendo hacia su threshold para actuar antes de que se materialice."}
 ],
 flashcards: [
 {d:1,q:"¿Diferencia risk appetite, tolerance, capacity?",a:"Capacity: máximo absoluto que la org puede soportar. Appetite: cuánto está dispuesta a tomar (estratégico). Tolerance: variación aceptable respecto al appetite (operacional)."},
 {d:2,q:"¿Qué es semi-quantitative risk analysis?",a:"Mezcla cualitativo y cuantitativo: usa rangos numéricos (1-5) en categorías cualitativas. Más estructurado que solo high/med/low."},
 {d:3,q:"¿Qué es residual risk y por qué importa?",a:"Riesgo restante tras aplicar controles. Importante decidir: aceptar formalmente o aplicar controles adicionales."},
-{d:4,q:"¿Qué riesgo principal tiene IoT?",a:"Default credentials, falta de parches, gestión a escala, exposición innecesaria, telemetría que filtra info, integración con OT crítico."}
+{d:4,q:"¿Qué riesgo principal tiene IoT?",a:"Default credentials, falta de parches, gestión a escala, exposición innecesaria, telemetría que filtra info, integración con OT crítico."},
+{d:1,q:"¿Qué son las 'three lines of defense'?",a:"1ª línea: gestión operativa (posee y gestiona el riesgo). 2ª: funciones de riesgo y cumplimiento (supervisan). 3ª: auditoría interna (aseguramiento independiente)."}
 ]
 };
 
@@ -414,7 +419,9 @@ flashcards: [
 {d:1,q:"¿Qué es PDCA en ISO?",a:"Plan-Do-Check-Act. Ciclo de mejora continua. Plan: planificar SGSI. Do: implementar. Check: monitorizar y auditar. Act: mejorar."},
 {d:2,q:"¿Qué documenta la cláusula 4 (Context) de ISO 27001?",a:"Internal/external issues que afectan al SGSI, partes interesadas y sus requisitos, scope del SGSI (qué cubre, exclusiones)."},
 {d:3,q:"Nombra 5 controles nuevos de Annex A 2022.",a:"Threat intelligence (5.7), Info sec para cloud (5.23), Data masking (8.11), DLP (8.12), Web filtering (8.23). Otros: ICT readiness, secure coding, config mgmt..."},
-{d:4,q:"¿Qué es una nonconformity en auditoría ISO?",a:"Major NC: incumplimiento sistemático de un requisito (puede impedir certificación). Minor NC: incumplimiento aislado. Observation: oportunidad de mejora."}
+{d:4,q:"¿Qué es una nonconformity en auditoría ISO?",a:"Major NC: incumplimiento sistemático de un requisito (puede impedir certificación). Minor NC: incumplimiento aislado. Observation: oportunidad de mejora."},
+{d:2,q:"¿Qué es el SoA (Statement of Applicability)?",a:"Declaración de Aplicabilidad: documento que lista cada control del Anexo A, indica si se aplica o se excluye y justifica la decisión. Es un entregable obligatorio del SGSI."},
+{d:1,q:"¿En cuántos temas organiza los controles el Anexo A de ISO 27001:2022?",a:"En 4 temas: Organizativos (5), Personas (6), Físicos (7) y Tecnológicos (8). En total 93 controles (antes eran 114 en 14 dominios)."}
 ]
 };
 
@@ -483,6 +490,8 @@ flashcards: [
 {d:1,q:"¿Cuáles son los principios de auditoría según ISO 19011?",a:"Integrity, fair presentation, due professional care, confidentiality, independence, evidence-based approach, risk-based approach."},
 {d:2,q:"¿Qué se acuerda en la opening meeting?",a:"Scope, criteria (estándar), métodos, timeline, equipo, comms, confidentiality, gestión de findings y plan de cierre."},
 {d:3,q:"¿Qué hace robusta la evidencia de auditoría?",a:"Sufficient (cantidad), reliable (fuente confiable), relevant (al criterio), useful (al hallazgo). Triangulación entre documentación, interview y observación."},
-{d:4,q:"¿Por qué los auditores deben ser tenacious?",a:"Persistentes en buscar evidencia. No conformarse con respuestas evasivas. Buscar hasta confirmar o refutar el hallazgo."}
+{d:4,q:"¿Por qué los auditores deben ser tenacious?",a:"Persistentes en buscar evidencia. No conformarse con respuestas evasivas. Buscar hasta confirmar o refutar el hallazgo."},
+{d:1,q:"¿Diferencia entre auditoría de 1ª, 2ª y 3ª parte?",a:"1ª parte: interna (la propia organización). 2ª parte: a un proveedor por parte de su cliente. 3ª parte: por un organismo de certificación independiente (la que otorga el certificado ISO)."},
+{d:3,q:"¿Diferencia entre Major NC, Minor NC y observación?",a:"Major NC: fallo sistemático o ausencia de un requisito, bloquea la certificación. Minor NC: fallo aislado, debe corregirse pero no bloquea. Observación: oportunidad de mejora, sin incumplimiento."}
 ]
 };

@@ -325,7 +325,10 @@ flashcards: [
 {d:1,q:"¿Qué es Google hacking / Google dorks?",a:"Usar operadores de búsqueda avanzados de Google (site:, inurl:, filetype:, intitle:) para encontrar info expuesta sin querer."},
 {d:2,q:"¿Diferencia entre fingerprinting activo y pasivo?",a:"Activo: envías paquetes y analizas respuestas (Nmap -O). Pasivo: solo escuchas tráfico que pasa (p0f) — sin huella."},
 {d:3,q:"¿Qué es ARP poisoning y para qué se usa?",a:"Enviar respuestas ARP no solicitadas para asociar tu MAC con la IP del gateway. Permite MITM en LAN."},
-{d:4,q:"¿Qué es OWASP Mobile Top 10?",a:"Lista de los 10 riesgos más críticos en apps móviles: weak server-side controls, insecure data storage, insecure communication, insecure authentication, etc."}
+{d:4,q:"¿Qué es OWASP Mobile Top 10?",a:"Lista de los 10 riesgos más críticos en apps móviles: weak server-side controls, insecure data storage, insecure communication, insecure authentication, etc."},
+{d:1,q:"¿Cuáles son las 5 fases de un ataque según CEH?",a:"1) Reconnaissance, 2) Scanning, 3) Gaining Access, 4) Maintaining Access, 5) Clearing Tracks."},
+{d:2,q:"¿Qué diferencia hay entre un escaneo SYN (-sS) y un Connect (-sT) en Nmap?",a:"SYN (half-open) no completa el handshake (envía SYN, recibe SYN-ACK, responde RST): más sigiloso y rápido. Connect completa la conexión TCP: más ruidoso y registrable."},
+{d:3,q:"¿Qué es la enumeración y por qué es clave en CEH?",a:"Extraer activamente info del objetivo: usuarios, recursos compartidos, servicios, versiones. Convierte el reconocimiento en vectores de ataque concretos."}
 ]
 };
 
@@ -388,7 +391,9 @@ flashcards: [
 {d:1,q:"¿Qué es Hell's Gate?",a:"Técnica para resolver dinámicamente los Syscall Service Numbers (SSN) leyendo ntdll.dll en memoria, sin importar APIs hookeadas. Permite direct syscalls."},
 {d:2,q:"¿Qué es MOTW y cómo se bypassea?",a:"Mark-of-the-Web: flag NTFS en archivos de internet que activa Protected View en Office. Bypass: ISO/IMG (no propagan MOTW al contenido), 7z con flag, container abuse."},
 {d:3,q:"¿Qué hace Certipy contra ADCS?",a:"Certipy enumera y explota vulnerabilidades ADCS (ESC1-ESC11). Solicita certs, usa S4U2Self, dumps NTDS via ESC9/ESC10."},
-{d:4,q:"¿Qué es un malleable C2 profile en Cobalt Strike?",a:"Archivo que define cómo el beacon habla con el C2: User-Agent, headers, URIs, sleep, jitter, JA3. Permite imitar tráfico legítimo."}
+{d:4,q:"¿Qué es un malleable C2 profile en Cobalt Strike?",a:"Archivo que define cómo el beacon habla con el C2: User-Agent, headers, URIs, sleep, jitter, JA3. Permite imitar tráfico legítimo."},
+{d:1,q:"¿Por qué los direct/indirect syscalls evaden EDR?",a:"Los EDR hookean funciones de userland en ntdll.dll. Invocar el syscall directamente al kernel salta esos hooks, evitando la inspección de la llamada."},
+{d:3,q:"¿Qué es Kerberoasting y cómo se mitiga?",a:"Solicitar tickets TGS de cuentas de servicio con SPN y crackear su hash offline. Mitigación: contraseñas largas/aleatorias en cuentas de servicio, gMSA, y monitorizar peticiones TGS masivas."}
 ]
 };
 
@@ -464,7 +469,9 @@ flashcards: [
 {d:2,q:"¿Qué es type juggling en PHP?",a:"PHP convierte tipos automáticamente con ==. '1abc'==1 es true, '0e1'=='0e2' es true. Usar siempre === (strict)."},
 {d:3,q:"¿Qué es SSTI?",a:"Server-Side Template Injection. Inyectar sintaxis del template engine (Jinja2, Twig, Velocity) que se evalúa server-side. Lleva a RCE."},
 {d:3,q:"¿Qué hace PHPGGC?",a:"Generador de payloads para PHP unserialize. Tiene cadenas de gadgets pre-construidas para frameworks comunes (Laravel, Symfony, etc.)."},
-{d:4,q:"¿Qué patrones buscar en source code review?",a:"Sinks peligrosos (eval, system, deserialize, query con concatenación), input no validado, crypto custom, secrets hardcoded, lógica de auth custom."}
+{d:4,q:"¿Qué patrones buscar en source code review?",a:"Sinks peligrosos (eval, system, deserialize, query con concatenación), input no validado, crypto custom, secrets hardcoded, lógica de auth custom."},
+{d:1,q:"¿En qué consiste el enfoque white-box de OSWE?",a:"Tienes el código fuente de la aplicación. El objetivo es analizar el flujo de datos (source → sink) para encontrar bugs de auth bypass y RCE, no escanear a ciegas."},
+{d:3,q:"¿Cómo se encadena un auth bypass con un RCE en OSWE?",a:"Primero saltas la autenticación (type juggling, SQLi, JWT débil), luego como usuario autenticado explotas un sink (deserialization, file upload, SSTI) para lograr ejecución remota."}
 ]
 };
 
@@ -532,6 +539,8 @@ flashcards: [
 {d:1,q:"¿Qué es OPSEC en red team?",a:"Operations Security. Minimizar artefactos detectables: malleable C2, sleep+jitter, evitar tools ruidosas, infraestructura separada, no reutilizar IoCs."},
 {d:2,q:"¿Qué hace un redirector en infraestructura C2?",a:"Servidor intermedio (Apache/nginx/Cloudfront) entre el target y el team server. Hide el C2 real, soporta domain fronting, fácil de quemar y rotar."},
 {d:3,q:"¿Qué son las Shadow Credentials?",a:"Ataque que escribe en msDS-KeyCredentialLink de un user objetivo (si tienes write). Permite obtener un cert para él vía PKINIT y autenticarte como él."},
-{d:4,q:"¿Qué es un BOF?",a:"Beacon Object File. Pequeño binario C compilado para Cobalt Strike que se ejecuta en proceso del beacon (sin fork). Mucho menos detectable que tools fork&run."}
+{d:4,q:"¿Qué es un BOF?",a:"Beacon Object File. Pequeño binario C compilado para Cobalt Strike que se ejecuta en proceso del beacon (sin fork). Mucho menos detectable que tools fork&run."},
+{d:1,q:"¿Diferencia entre red team y pentest?",a:"Pentest: amplio, busca el máximo de vulnerabilidades en un alcance acotado. Red team: dirigido, simula un adversario concreto con sigilo y OPSEC para probar detección y respuesta del blue team."},
+{d:3,q:"¿Qué es el movimiento lateral y técnicas comunes?",a:"Saltar de un host comprometido a otros dentro de la red. Técnicas: Pass-the-Hash, Pass-the-Ticket, PsExec/WMI/WinRM, RDP, abuso de delegación Kerberos."}
 ]
 };
